@@ -1,0 +1,1055 @@
+2025-05-16 10:00:15,603 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s OR users.email = %(email_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'Abdishu', 'email_1': 'abdishakur431@gmail.com', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-16 10:02:22,228 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-16 10:02:26,460 - app.utils.email - ERROR - Failed to send email to abdishakur431@gmail.com: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-442fa3e2ce5sm44791245e9.13 - gsmtp')
+2025-05-16 10:18:11,927 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s OR users.email = %(email_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'abdishu', 'email_1': 'abdishakur431@gmail.com', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-16 10:26:22,630 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'json_invalid', 'loc': ('body', 68), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Invalid control character at'}}]
+2025-05-16 10:27:13,652 - app.utils.email - ERROR - Failed to send email to oroomercy4@gmail.com: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-442f39ef400sm91828885e9.33 - gsmtp')
+2025-05-16 10:34:52,685 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-16 12:13:13,662 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-16 12:13:21,092 - app.utils.email - INFO - Email sent successfully to emungai906@gmail.com
+2025-05-16 12:22:26,268 - app.utils.email - INFO - Email sent successfully to emungai906@gmail.com
+2025-05-16 18:26:53,491 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT organizations.id AS organizations_id, organizations.name AS organizations_name, organizations.description AS organizations_description, organizations.contact_email AS organizations_contact_email, organizations.location AS organizations_location 
+FROM organizations 
+WHERE organizations.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 1, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-16 22:18:42,809 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'enum', 'loc': ('body', 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}]
+2025-05-16 22:24:41,383 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-16 22:24:47,748 - app.utils.email - INFO - Email sent successfully to admin@example.com
+2025-05-16 22:28:42,726 - app.utils.email - INFO - Email sent successfully to admin2@example.com
+2025-05-16 22:30:03,034 - app.utils.email - INFO - Email sent successfully to admin3@example.com
+2025-05-16 22:55:54,974 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-16 22:58:01,246 - app.utils.error_handlers - ERROR - Unexpected error: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+
+2025-05-16 22:58:56,776 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'volunteers'}]
+2025-05-16 23:01:19,322 - app.utils.error_handlers - ERROR - Unexpected error: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+
+2025-05-16 23:01:20,789 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'volunteers'}]
+2025-05-16 23:01:21,425 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'organizations'}]
+2025-05-16 23:01:26,368 - app.utils.error_handlers - ERROR - Unexpected error: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+
+2025-05-16 23:02:16,677 - app.utils.error_handlers - ERROR - Unexpected error: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 7 validation errors:
+  {'type': 'enum', 'loc': ('response', 0, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 1, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 2, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 3, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 4, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ADMIN', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 5, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'VOLUNTEER', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+  {'type': 'enum', 'loc': ('response', 6, 'role'), 'msg': "Input should be 'volunteer', 'organization' or 'admin'", 'input': 'ORGANIZATION', 'ctx': {'expected': "'volunteer', 'organization' or 'admin'"}}
+
+2025-05-16 23:02:18,224 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'volunteers'}]
+2025-05-16 23:02:18,928 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'organizations'}]
+2025-05-16 23:02:23,316 - app.utils.error_handlers - ERROR - Unexpected error: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/dennis-nRJ5S3RX/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+
+2025-05-17 11:26:18,238 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-17 11:30:24,141 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-17 11:33:20,272 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-17 11:33:39,233 - app.utils.email - INFO - Email sent successfully to test@example.com
+2025-05-17 11:35:27,525 - app.utils.email - INFO - Email sent successfully to muthonidennis546@gmail.com
+2025-05-17 11:41:21,069 - app.utils.email - INFO - Email sent successfully to muthonidennis546@gmail.com
+2025-05-17 11:54:52,239 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT opportunities.id AS opportunities_id, opportunities.title AS opportunities_title, opportunities.description AS opportunities_description, opportunities.skills_required AS opportunities_skills_required, opportunities.start_date AS opportunities_start_date, opportunities.end_date AS opportunities_end_date, opportunities.location AS opportunities_location, opportunities.organization_id AS opportunities_organization_id 
+FROM opportunities 
+WHERE opportunities.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 1, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-17 20:40:48,990 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-17 20:42:04,810 - app.utils.email - INFO - Email sent successfully to muthonidennis546@gmail.com
+2025-05-18 12:14:27,810 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-18 12:32:13,372 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 18, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-18 13:04:57,917 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-18 13:17:03,210 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:17:03,883 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:19:37,123 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:19:37,770 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:19:40,571 - app.utils.error_handlers - ERROR - Unexpected error: Unable to serialize unknown type: <class 'app.models.opportunity.Opportunity'>
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 181, in serialize_response
+    return field.serialize(
+           ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/_compat.py", line 151, in serialize
+    return self._type_adapter.dump_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/pydantic/type_adapter.py", line 572, in dump_python
+    return self.serializer.to_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.opportunity.Opportunity'>
+2025-05-18 13:19:41,448 - app.utils.error_handlers - ERROR - Unexpected error: Unable to serialize unknown type: <class 'app.models.opportunity.Opportunity'>
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 181, in serialize_response
+    return field.serialize(
+           ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/_compat.py", line 151, in serialize
+    return self._type_adapter.dump_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/pydantic/type_adapter.py", line 572, in dump_python
+    return self.serializer.to_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.opportunity.Opportunity'>
+2025-05-18 13:21:38,841 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:21:39,502 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:22:44,082 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:22:44,724 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:23:15,039 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:23:15,827 - app.utils.error_handlers - ERROR - Unexpected error: name 'func' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/volunteer_routes.py", line 106, in get_volunteer_stats
+    total_hours = db.query(func.sum(VolunteerHour.hours)).filter(
+                           ^^^^
+NameError: name 'func' is not defined
+2025-05-18 13:39:37,630 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-18 13:39:46,035 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-18 13:39:49,472 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-18 21:30:30,070 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-19 11:11:23,481 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-19 11:11:33,672 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-19 11:20:42,445 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 18, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-19 19:25:07,497 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-19 19:35:21,815 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 18, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-19 19:46:51,804 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT opportunities.id AS opportunities_id, opportunities.title AS opportunities_title, opportunities.description AS opportunities_description, opportunities.skills_required AS opportunities_skills_required, opportunities.start_date AS opportunities_start_date, opportunities.end_date AS opportunities_end_date, opportunities.location AS opportunities_location, opportunities.organization_id AS opportunities_organization_id 
+FROM opportunities) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-19 20:12:01,275 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-19 20:28:36,611 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-19 20:34:55,776 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 18, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-20 11:18:55,044 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-20 11:30:57,326 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 18, 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-21 23:27:31,616 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-21 23:27:36,414 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-21 23:32:03,305 - app.utils.email - INFO - Email sent successfully to didaabdi@gmail.com
