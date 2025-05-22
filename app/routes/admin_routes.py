@@ -22,11 +22,7 @@ from app.schemas.admin import AdminResponse
 
 from app.utils.auth import get_current_user, get_admin_user
 
-router = APIRouter(
-    prefix="/admin",
-    tags=["admin"],
-    dependencies=[Depends(get_admin_user)]
-)
+router = APIRouter()
 
 @router.get("/test")
 def test_endpoint():

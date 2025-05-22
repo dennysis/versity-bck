@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from app.config import engine, Base
@@ -7,6 +7,8 @@ from app.routes import auth_routes, volunteer_routes, organization_routes, oppor
 from app.utils.logging_config import setup_logging
 from app.utils.error_handlers import validation_exception_handler, sqlalchemy_exception_handler, integrity_error_handler, general_exception_handler
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
+from app.utils.auth import  get_admin_user
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -32,7 +34,7 @@ app.include_router(organization_routes.router, prefix="/api/organizations", tags
 app.include_router(opportunity_routes.router, prefix="/api/opportunities", tags=["opportunities"])
 app.include_router(match_routes.router)
 app.include_router(hour_tracking_routes.router)
-app.include_router(admin_routes.router)
+app.include_router(admin_routes.router,prefix="/admin", tags=["admin"], dependencies=[Depends(get_admin_user)])
 app.include_router(health_routes.router) 
 
 @app.get("/")
