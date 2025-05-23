@@ -17,6 +17,7 @@ def list_opportunities(
     limit: int = 10,
     title: Optional[str] = None,
     location: Optional[str] = None,
+    organization_id: Optional[int] = None, 
     db: Session = Depends(get_db)
 ):
     query = db.query(Opportunity)
@@ -25,6 +26,9 @@ def list_opportunities(
         query = query.filter(Opportunity.title.ilike(f"%{title}%"))
     if location:
         query = query.filter(Opportunity.location.ilike(f"%{location}%"))
+
+    if organization_id:  
+        query = query.filter(Opportunity.organization_id == organization_id)
     
     # Get total count for pagination
     total_count = query.count()

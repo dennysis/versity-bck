@@ -36,10 +36,7 @@ def list_matches(
         elif current_user.role == UserRole.ORGANIZATION:
             # Get organization directly from user's organization_id
             if not current_user.organization_id:
-                raise HTTPException(
-                    status_code=status.HTTP_404_NOT_FOUND,
-                    detail="Organization profile not found"
-                )
+               return []
             
             # Find all matches for opportunities belonging to this organization
             return (
