@@ -34,7 +34,7 @@ app.include_router(organization_routes.router, prefix="/api/organizations", tags
 app.include_router(opportunity_routes.router, prefix="/api/opportunities", tags=["opportunities"])
 app.include_router(match_routes.router)
 app.include_router(hour_tracking_routes.router)
-app.include_router(admin_routes.router,prefix="/admin", tags=["admin"], dependencies=[Depends(get_admin_user)])
+app.include_router(admin_routes.router, prefix="/api/admin", tags=["Admin"])
 app.include_router(health_routes.router) 
 
 @app.get("/")

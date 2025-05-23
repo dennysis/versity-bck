@@ -1053,3 +1053,220 @@ Traceback (most recent call last):
               ^^^^^^^^^^^^^^^^^
 AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-05-21 23:32:03,305 - app.utils.email - INFO - Email sent successfully to didaabdi@gmail.com
+2025-05-23 09:01:31,049 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'dennis', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-23 09:01:51,761 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-23 09:02:16,084 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'missing', 'loc': ('body', 'username'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'password'), 'msg': 'Field required', 'input': None}]
+2025-05-23 09:02:22,568 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'missing', 'loc': ('body', 'username'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'password'), 'msg': 'Field required', 'input': None}]
+2025-05-23 09:08:17,354 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'volunteers'}]
+2025-05-23 09:08:36,973 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'organizations'}]
+2025-05-23 09:08:59,927 - app.utils.error_handlers - ERROR - Unexpected error: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+
+2025-05-23 09:09:19,321 - app.utils.error_handlers - ERROR - Unexpected error: type object 'User' has no attribute 'created_at'
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/admin_routes.py", line 213, in get_analytics
+    sa.extract('year', User.created_at) == current_year,
+                       ^^^^^^^^^^^^^^^
+AttributeError: type object 'User' has no attribute 'created_at'
+2025-05-23 09:18:24,339 - app.utils.error_handlers - ERROR - Unexpected error: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+
+2025-05-23 09:18:31,655 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'organizations'}]
+2025-05-23 09:18:37,616 - app.utils.error_handlers - WARNING - Validation error: [{'type': 'int_parsing', 'loc': ('path', 'user_id'), 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'volunteers'}]
+2025-05-23 09:21:03,252 - app.utils.error_handlers - ERROR - Unexpected error: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'int_type', 'loc': ('response', 0, 'user_id'), 'msg': 'Input should be a valid integer', 'input': None}
+
+2025-05-23 09:21:12,811 - app.utils.error_handlers - ERROR - Unexpected error: Unable to serialize unknown type: <class 'app.models.user.User'>
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 181, in serialize_response
+    return field.serialize(
+           ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/_compat.py", line 151, in serialize
+    return self._type_adapter.dump_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/pydantic/type_adapter.py", line 572, in dump_python
+    return self.serializer.to_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.user.User'>
