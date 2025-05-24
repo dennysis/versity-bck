@@ -1270,3 +1270,78 @@ Traceback (most recent call last):
     return self.serializer.to_python(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^
 pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.user.User'>
+2025-05-24 14:52:33,737 - app.utils.error_handlers - ERROR - Database error: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.role AS users_role, users.organization_id AS users_organization_id 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'abdishu', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-24 14:52:54,434 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-24 14:59:40,801 - app.utils.error_handlers - ERROR - Unexpected error: name 'logger' is not defined
+Traceback (most recent call last):
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/match_routes.py", line 126, in update_match
+    logger.info(f"Update match {match_id} - User {current_user.id} (role: {current_user.role}, org_id: {current_user.organization_id})")
+    ^^^^^^
+NameError: name 'logger' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/Projects/versityfull/versitybck/app/routes/match_routes.py", line 179, in update_match
+    logger.error(f"Error updating match {match_id}: {str(e)}", exc_info=True)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2025-05-24 15:01:25,152 - app.routes.match_routes - INFO - Update match 15 - User 23 (role: organization, org_id: 10)
+2025-05-24 15:01:25,592 - app.routes.match_routes - INFO - Match 15: opportunity_id=5, opportunity.organization_id=10
+2025-05-24 15:01:25,593 - app.routes.match_routes - INFO - Organization check: user.org_id=10, opportunity.org_id=10
+2025-05-24 15:01:26,698 - app.routes.match_routes - INFO - Match 15 updated to status accepted by user 23

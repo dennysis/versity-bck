@@ -1,14 +1,16 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-
+import logging
 from app.config import get_db
 from app.models.user import User, UserRole
+from sqlalchemy.exc import SQLAlchemyError
 from app.models.organization import Organization
 from app.models.match import Match, MatchStatus
 from app.models.opportunity import Opportunity
 from app.schemas.match import MatchCreate, MatchResponse, MatchUpdate
 from app.utils.auth import get_current_user, get_organization_user
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/matches", tags=["matches"], redirect_slashes=True)
 
@@ -115,34 +117,69 @@ def update_match(
     match_id: int,
     match_data: MatchUpdate,
     db: Session = Depends(get_db),
-    current_org: Organization = Depends(get_organization_user)
+    current_user: User = Depends(get_current_user)
 ):
     """
-    Organizations (and Admins, via the same dependency) can accept/reject an application.
+    Organizations (and Admins) can accept/reject an application.
     """
-    match = (
-        db.query(Match)
-          .filter(Match.id == match_id)
-          .first()
-    )
-    if not match:
+    try:
+        # Debug logging
+        logger.info(f"Update match {match_id} - User {current_user.id} (role: {current_user.role}, org_id: {current_user.organization_id})")
+        
+        # Get the match
+        match = db.query(Match).filter(Match.id == match_id).first()
+        if not match:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Match not found"
+            )
+
+        # Get the opportunity
+        opportunity = db.query(Opportunity).filter(Opportunity.id == match.opportunity_id).first()
+        if not opportunity:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Opportunity not found"
+            )
+
+        # Debug logging
+        logger.info(f"Match {match_id}: opportunity_id={match.opportunity_id}, opportunity.organization_id={opportunity.organization_id}")
+
+        # Check authorization
+        if current_user.role == UserRole.ADMIN:
+            # Admins can update any match
+            logger.info(f"Admin access granted for user {current_user.id}")
+            pass
+        elif current_user.role == UserRole.ORGANIZATION:
+            # Organizations can only update matches for their opportunities
+            logger.info(f"Organization check: user.org_id={current_user.organization_id}, opportunity.org_id={opportunity.organization_id}")
+            if not current_user.organization_id or opportunity.organization_id != current_user.organization_id:
+                logger.warning(f"Authorization failed: user.org_id={current_user.organization_id}, opportunity.org_id={opportunity.organization_id}")
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail="Not authorized to update this match"
+                )
+        else:
+            # Volunteers cannot update match status
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Only organizations and admins can update match status"
+            )
+
+        # Update the match status
+        match.status = match_data.status
+        db.commit()
+        db.refresh(match)
+        
+        logger.info(f"Match {match_id} updated to status {match_data.status} by user {current_user.id}")
+        return match
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error updating match {match_id}: {str(e)}", exc_info=True)
+        db.rollback()
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Match not found"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while updating the match"
         )
-
-  
-    opportunity = db.query(Opportunity) \
-                    .filter(Opportunity.id == match.opportunity_id) \
-                    .first()
-    if opportunity.organization_id != current_org.id:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Not authorized to update this match"
-        )
-
-
-    match.status = match_data.status
-    db.commit()
-    db.refresh(match)
-    return match
