@@ -1,10 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status,Query
 from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User, UserRole
 from app.models.organization import Organization
+from app.models.opportunity import Opportunity
 from app.schemas.organization import OrganizationResponse, OrganizationUpdate,OrganizationCreate
 from app.utils.auth import get_current_user, get_admin_user
+from typing import List, Optional
+
 
 
 router = APIRouter()
@@ -76,3 +79,56 @@ def create_organization(
     
     return new_organization
 
+
+@router.get("/", response_model=List[OrganizationResponse])
+def list_organizations(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(10, ge=1, le=100),
+    name: Optional[str] = Query(None),
+    location: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
+    """
+    List all organizations with optional filtering
+    """
+    query = db.query(Organization)
+    
+    # Apply filters if provided
+    if name:
+        query = query.filter(Organization.name.ilike(f"%{name}%"))
+    if location:
+        query = query.filter(Organization.location.ilike(f"%{location}%"))
+    
+    organizations = query.offset(skip).limit(limit).all()
+    return organizations
+
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_organization(
+    id: int, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_admin_user)  # Only admins can delete
+):
+    """
+    Delete an organization (Admin only)
+    """
+    organization = db.query(Organization).filter(Organization.id == id).first()
+    if not organization:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Organization not found"
+        )
+    
+    # Check if organization has active opportunities
+    active_opportunities = db.query(Opportunity).filter(
+        Opportunity.organization_id == id
+    ).count()
+    
+    if active_opportunities > 0:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Cannot delete organization with {active_opportunities} active opportunities"
+        )
+    
+    db.delete(organization)
+    db.commit()
+    return None

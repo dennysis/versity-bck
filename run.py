@@ -28,14 +28,15 @@ app.add_exception_handler(SQLAlchemyError, sqlalchemy_exception_handler)
 app.add_exception_handler(IntegrityError, integrity_error_handler)
 app.add_exception_handler(Exception, general_exception_handler)
 
-app.include_router(auth_routes.router)
-app.include_router(volunteer_routes.router)
+app.include_router(auth_routes.router, prefix="/api/auth", tags=["auth"])
+app.include_router(hour_tracking_routes.router, prefix="/api/volunteer-hours", tags=["volunteer-hours"])
 app.include_router(organization_routes.router, prefix="/api/organizations", tags=["organizations"])
 app.include_router(opportunity_routes.router, prefix="/api/opportunities", tags=["opportunities"])
 app.include_router(match_routes.router)
 app.include_router(hour_tracking_routes.router)
 app.include_router(admin_routes.router, prefix="/api/admin", tags=["Admin"])
 app.include_router(health_routes.router) 
+app.include_router(volunteer_routes.router, prefix="/api/volunteers", tags=["volunteers"])
 
 @app.get("/")
 def read_root():

@@ -4,11 +4,11 @@ from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User, UserRole
 from app.models.admin import Admin
-from app.schemas.user import UserCreate, UserResponse, Token
+from app.schemas.user import UserCreate, UserResponse, Token ,UserUpdate
 from app.utils.auth import create_access_token, get_password_hash
 from datetime import timedelta
 from passlib.context import CryptContext
-from app.utils.auth import get_current_user
+from app.utils.auth import get_current_user ,get_admin_user
 from app.models.organization import Organization
 from app.utils.email import send_welcome_email, request_password_reset, verify_password_reset_token
 from app.schemas.auth import EmailSchema, PasswordResetSchema
@@ -171,3 +171,86 @@ def reset_password(reset_data: PasswordResetSchema, db: Session = Depends(get_db
     db.commit()
     
     return {"message": "Password has been reset successfully"}
+
+
+@router.put("/me", response_model=UserResponse)
+def update_current_user_profile(
+    user_data: UserUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Update current user's profile
+    """
+    try:
+        # Update only provided fields
+        update_data = user_data.dict(exclude_unset=True)
+        
+        # Handle password update separately if provided
+        if 'password' in update_data:
+            hashed_password = get_password_hash(update_data['password'])
+            update_data['hashed_password'] = hashed_password
+            del update_data['password']
+        
+        # Update user fields
+        for field, value in update_data.items():
+            if hasattr(current_user, field):
+                setattr(current_user, field, value)
+        
+        db.commit()
+        db.refresh(current_user)
+        
+        return current_user
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error updating profile: {str(e)}"
+        )
+
+
+
+@router.put("/users/{user_id}", response_model=UserResponse)
+def update_user(
+    user_id: int,
+    user_data: UserUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_admin_user)  # Only admins
+):
+    """
+    Update any user's profile (Admin only)
+    """
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
+    
+    try:
+        # Update only provided fields
+        update_data = user_data.dict(exclude_unset=True)
+        
+        # Handle password update separately if provided
+        if 'password' in update_data:
+            hashed_password = get_password_hash(update_data['password'])
+            update_data['hashed_password'] = hashed_password
+            del update_data['password']
+        
+        # Update user fields
+        for field, value in update_data.items():
+            if hasattr(user, field):
+                setattr(user, field, value)
+        
+        db.commit()
+        db.refresh(user)
+        
+        return user
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error updating user: {str(e)}"
+        )
