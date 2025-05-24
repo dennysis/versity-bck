@@ -13,6 +13,8 @@ from app.models.opportunity import Opportunity
 from app.models.match import Match, MatchStatus
 from app.models.volunteer_hour import VolunteerHour
 from app.models.system_log import SystemLog
+from app.models.organization import Organization
+from app.schemas.organization import OrganizationResponse
 
 from app.schemas.user import UserResponse
 from app.schemas.opportunity import OpportunityResponse
@@ -443,4 +445,275 @@ def get_dashboard(db: Session = Depends(get_db), current_user: User = Depends(ge
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error retrieving dashboard data: {str(e)}\n{error_details}"
+        )
+@router.get("/organizations")
+def get_organizations(db: Session = Depends(get_db), current_user: User = Depends(get_admin_user)):
+    """
+    Get all organizations for admin management
+    """
+    try:
+        organizations = db.query(Organization).all()
+        
+        # Format organizations with additional info
+        formatted_orgs = []
+        for org in organizations:
+            # Get associated user account
+            user = db.query(User).filter(User.organization_id == org.id).first()
+            
+            # Count opportunities
+            opportunity_count = db.query(Opportunity).filter(
+                Opportunity.organization_id == org.id
+            ).count()
+            
+            # Count active volunteers (through matches)
+            active_volunteers = db.query(Match).join(
+                Opportunity, Match.opportunity_id == Opportunity.id
+            ).filter(
+                Opportunity.organization_id == org.id,
+                Match.status == MatchStatus.ACCEPTED
+            ).distinct(Match.user_id).count()
+            
+            formatted_org = {
+                "id": org.id,
+                "name": org.name,
+                "description": org.description,
+                "contact_email": org.contact_email,
+                "location": org.location,
+                "phone": getattr(org, 'phone', ''),
+                "status": "active" if user and user.role == UserRole.ORGANIZATION else "inactive",
+                "verified": getattr(org, 'verified', True),  # Add verified field to your model if needed
+                "opportunity_count": opportunity_count,
+                "active_volunteers": active_volunteers,
+                "created_at": getattr(org, 'created_at', datetime.now()).isoformat() if hasattr(org, 'created_at') else datetime.now().isoformat()
+            }
+            formatted_orgs.append(formatted_org)
+        
+        return {"data": formatted_orgs}
+        
+    except Exception as e:
+        print(f"Error in get_organizations: {str(e)}")
+        error_details = traceback.format_exc()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error retrieving organizations: {str(e)}\n{error_details}"
+        )
+
+# Get specific organization
+@router.get("/organizations/{org_id}")
+def get_organization(org_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_admin_user)):
+    """
+    Get specific organization details (admin only)
+    """
+    try:
+        org = db.query(Organization).filter(Organization.id == org_id).first()
+        if not org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Organization not found"
+            )
+        
+        # Get associated user account
+        user = db.query(User).filter(User.organization_id == org.id).first()
+        
+        # Get opportunities
+        opportunities = db.query(Opportunity).filter(
+            Opportunity.organization_id == org.id
+        ).all()
+        
+        # Get volunteers
+        volunteers = db.query(User).join(
+            Match, Match.user_id == User.id
+        ).join(
+            Opportunity, Match.opportunity_id == Opportunity.id
+        ).filter(
+            Opportunity.organization_id == org.id,
+            Match.status == MatchStatus.ACCEPTED
+        ).distinct().all()
+        
+        return {
+            "id": org.id,
+            "name": org.name,
+            "description": org.description,
+            "contact_email": org.contact_email,
+            "location": org.location,
+            "phone": getattr(org, 'phone', ''),
+            "status": "active" if user else "inactive",
+            "verified": getattr(org, 'verified', True),
+            "opportunities": [{"id": opp.id, "title": opp.title} for opp in opportunities],
+            "volunteers": [{"id": vol.id, "username": vol.username} for vol in volunteers],
+            "created_at": getattr(org, 'created_at', datetime.now()).isoformat() if hasattr(org, 'created_at') else datetime.now().isoformat()
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in get_organization: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error retrieving organization: {str(e)}"
+        )
+
+# Update organization
+@router.put("/organizations/{org_id}")
+def update_organization(
+    org_id: int, 
+    org_data: dict, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_admin_user)
+):
+    """
+    Update organization details (admin only)
+    """
+    try:
+        org = db.query(Organization).filter(Organization.id == org_id).first()
+        if not org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Organization not found"
+            )
+        
+        # Update organization fields
+        for key, value in org_data.items():
+            if hasattr(org, key) and key not in ['id', 'created_at']:
+                setattr(org, key, value)
+        
+        db.commit()
+        db.refresh(org)
+        
+        return {
+            "id": org.id,
+            "name": org.name,
+            "description": org.description,
+            "contact_email": org.contact_email,
+            "location": org.location,
+            "phone": getattr(org, 'phone', ''),
+            "verified": getattr(org, 'verified', True)
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in update_organization: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error updating organization: {str(e)}"
+        )
+
+# Delete organization
+@router.delete("/organizations/{org_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_organization(org_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_admin_user)):
+    """
+    Delete organization (admin only)
+    """
+    try:
+        org = db.query(Organization).filter(Organization.id == org_id).first()
+        if not org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Organization not found"
+            )
+        
+        # Delete associated user account if exists
+        user = db.query(User).filter(User.organization_id == org.id).first()
+        if user:
+            db.delete(user)
+        
+        # Delete organization
+        db.delete(org)
+        db.commit()
+        
+        return None
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in delete_organization: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error deleting organization: {str(e)}"
+        )
+
+# Verify organization
+@router.post("/organizations/{org_id}/verify")
+def verify_organization(org_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_admin_user)):
+    """
+    Verify organization (admin only)
+    """
+    try:
+        org = db.query(Organization).filter(Organization.id == org_id).first()
+        if not org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Organization not found"
+            )
+        
+        # Add verified field to organization model if not exists
+        if hasattr(org, 'verified'):
+            org.verified = True
+            db.commit()
+            db.refresh(org)
+        
+        return {"message": "Organization verified successfully"}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in verify_organization: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error verifying organization: {str(e)}"
+        )
+
+# Update organization status
+@router.put("/organizations/{org_id}/status")
+def update_organization_status(
+    org_id: int, 
+    status_data: dict, 
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_admin_user)
+):
+    """
+    Update organization status (admin only)
+    """
+    try:
+        org = db.query(Organization).filter(Organization.id == org_id).first()
+        if not org:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Organization not found"
+            )
+        
+        # Get associated user account
+        user = db.query(User).filter(User.organization_id == org.id).first()
+        
+        new_status = status_data.get('status')
+        if new_status == 'active' and user:
+            # Ensure user account is active
+            user.role = UserRole.ORGANIZATION
+        elif new_status == 'inactive' and user:
+            # You might want to disable the user account
+            pass
+        elif new_status == 'suspended' and user:
+            # Handle suspension logic
+            pass
+        
+        # Add status field to organization model if needed
+        if hasattr(org, 'status'):
+            org.status = new_status
+        
+        db.commit()
+        
+        return {"message": f"Organization status updated to {new_status}"}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in update_organization_status: {str(e)}")
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error updating organization status: {str(e)}"
         )
