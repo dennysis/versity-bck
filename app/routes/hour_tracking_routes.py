@@ -4,7 +4,7 @@ from app.config import get_db
 from app.models.user import User, UserRole
 from app.models.volunteer_hour import VolunteerHour
 from app.models.opportunity import Opportunity
-from app.schemas.volunteer_hour import VolunteerHourCreate, VolunteerHourResponse, VolunteerHourVerify
+from app.schemas.volunteer_hour import VolunteerHourCreate, VolunteerHourResponse, VolunteerHourVerify, VolunteerHourUpdate
 from app.utils.auth import get_current_user, get_organization_user
 from typing import List
 

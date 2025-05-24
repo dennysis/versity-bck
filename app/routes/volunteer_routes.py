@@ -6,11 +6,11 @@ from app.models.volunteer_hour import VolunteerHour
 from app.schemas.user import UserResponse, UserUpdate
 from app.models.opportunity import Opportunity
 from app.schemas.volunteer_hour import VolunteerHourResponse
-from app.models.match import Match, MatchStatus ,MatchResponse
+from app.models.match import Match, MatchStatus 
 from app.utils.auth import get_current_user
 from typing import List,Dict , Any ,Optional
 from sqlalchemy import func
-
+from app.schemas.match import MatchResponse 
 router = APIRouter(prefix="/api/volunteers", tags=["volunteers"])
 
 @router.get("/{id}", response_model=UserResponse)
