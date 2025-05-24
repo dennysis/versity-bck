@@ -18,7 +18,7 @@ app = FastAPI(title="Versity API",redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins="*" and  "http://localhost:3000",  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
