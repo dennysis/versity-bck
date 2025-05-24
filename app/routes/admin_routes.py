@@ -354,3 +354,93 @@ def get_analytics(db: Session = Depends(get_db), current_user: User = Depends(ge
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error retrieving analytics data: {str(e)}\n{error_details}"
         )
+
+@router.get("/dashboard")
+def get_dashboard(db: Session = Depends(get_db), current_user: User = Depends(get_admin_user)):
+    """
+    Get comprehensive admin dashboard data
+    """
+    try:
+        # Get user statistics
+        volunteer_count = db.query(User).filter(User.role == UserRole.VOLUNTEER).count()
+        organization_count = db.query(User).filter(User.role == UserRole.ORGANIZATION).count()
+        admin_count = db.query(User).filter(User.role == UserRole.ADMIN).count()
+        total_users = volunteer_count + organization_count + admin_count
+        
+        # Get opportunity statistics
+        total_opportunities = db.query(Opportunity).count()
+        try:
+            active_opportunities = db.query(Opportunity).filter(
+                Opportunity.end_date >= datetime.now()
+            ).count()
+        except Exception:
+            active_opportunities = 0
+        
+        # Get match statistics
+        total_matches = db.query(Match).count()
+        pending_matches = db.query(Match).filter(Match.status == MatchStatus.PENDING).count()
+        accepted_matches = db.query(Match).filter(Match.status == MatchStatus.ACCEPTED).count()
+        rejected_matches = db.query(Match).filter(Match.status == MatchStatus.REJECTED).count()
+        
+        # Get volunteer hours statistics
+        try:
+            total_hours = db.query(sa.func.sum(VolunteerHour.hours)).scalar() or 0
+            verified_hours = db.query(sa.func.sum(VolunteerHour.hours)).filter(
+                VolunteerHour.verified == True
+            ).scalar() or 0
+            
+            # Convert to float to ensure JSON serialization works
+            total_hours = float(total_hours)
+            verified_hours = float(verified_hours)
+        except Exception:
+            total_hours = 0.0
+            verified_hours = 0.0
+        
+        # Get recent activity (simplified version)
+        recent_activity = []
+        try:
+            # Recent user registrations
+            recent_users = db.query(User).order_by(User.id.desc()).limit(3).all()
+            for user in recent_users:
+                recent_activity.append({
+                    "type": "user_registration",
+                    "description": f"New {user.role.lower()} registered: {user.username}",
+                    "timestamp": datetime.now().isoformat(),
+                    "user_id": user.id
+                })
+            
+            # Recent matches
+            recent_matches = db.query(Match).order_by(Match.matched_on.desc()).limit(2).all()
+            for match in recent_matches:
+                recent_activity.append({
+                    "type": "match_created",
+                    "description": f"New application submitted for opportunity ID {match.opportunity_id}",
+                    "timestamp": match.matched_on.isoformat() if match.matched_on else datetime.now().isoformat(),
+                    "match_id": match.id
+                })
+        except Exception as e:
+            print(f"Error getting recent activity: {e}")
+        
+        return {
+            "total_users": total_users,
+            "total_volunteers": volunteer_count,
+            "total_organizations": organization_count,
+            "total_admins": admin_count,
+            "total_opportunities": total_opportunities,
+            "active_opportunities": active_opportunities,
+            "total_matches": total_matches,
+            "pending_applications": pending_matches,
+            "accepted_applications": accepted_matches,
+            "rejected_applications": rejected_matches,
+            "total_hours": total_hours,
+            "verified_hours": verified_hours,
+            "recent_activity": recent_activity[:10]  # Limit to 10 most recent
+        }
+        
+    except Exception as e:
+        print(f"Error in get_dashboard: {str(e)}")
+        error_details = traceback.format_exc()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error retrieving dashboard data: {str(e)}\n{error_details}"
+        )
