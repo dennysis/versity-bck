@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query  # ✅ Add Query here
 from sqlalchemy.orm import Session
 from app.config import get_db
 from app.models.user import User, UserRole
@@ -20,13 +20,13 @@ def list_opportunities(
     category: Optional[str] = Query(None),
     search: Optional[str] = Query(None),
     remote: Optional[bool] = Query(None),
-    db: Session = Depends(get_db)  # ✅ This should be Session = Depends(get_db)
+    db: Session = Depends(get_db)
 ):
     """
     Get all opportunities with optional filtering
     """
     try:
-        # ✅ Now db is a proper Session object
+        # Now db is a proper Session object
         query = db.query(Opportunity)
         
         # Apply filters
@@ -60,16 +60,9 @@ def list_opportunities(
         print(f"Error in list_opportunities: {e}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
-
-@router.get("", response_model=Dict[str, Any])  # Add this route to handle requests without trailing slash
-def list_opportunities_no_slash(
-    skip: int = 0, 
-    limit: int = 10,
-    title: Optional[str] = None,
-    location: Optional[str] = None,
-    db: Session = Depends(get_db)
-):
-    return list_opportunities(skip, limit, title, location, db)
+# Remove the duplicate route - this is causing conflicts
+# @router.get("", response_model=Dict[str, Any])  # ❌ DELETE THIS
+# def list_opportunities_no_slash(...):  # ❌ DELETE THIS
 
 @router.get("/{id}", response_model=OpportunityResponse)
 def get_opportunity(id: int, db: Session = Depends(get_db)):
@@ -80,7 +73,6 @@ def get_opportunity(id: int, db: Session = Depends(get_db)):
             detail="Opportunity not found"
         )
     
-    # Convert SQLAlchemy model to dictionary
     return opportunity
 
 @router.post("/", response_model=OpportunityResponse)
@@ -90,19 +82,16 @@ def create_opportunity(
     current_user: User = Depends(get_organization_user)
 ):
     try:
-        
         if current_user.role == UserRole.ORGANIZATION:
-            
             if hasattr(current_user, 'organization_id') and current_user.organization_id:
                 organization_id = current_user.organization_id
             else:
-              
+                # Create organization if it doesn't exist
                 organization = db.query(Organization).filter(
                     Organization.contact_email == current_user.email
                 ).first()
                 
                 if not organization:
-                  
                     organization = Organization(
                         name=current_user.username,
                         description="Organization profile",
@@ -115,7 +104,6 @@ def create_opportunity(
                 
                 organization_id = organization.id
                 
-        
         elif current_user.role == UserRole.ADMIN:
             if not hasattr(opportunity_data, 'organization_id') or not opportunity_data.organization_id:
                 raise HTTPException(
@@ -128,7 +116,6 @@ def create_opportunity(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Only organization or admin users can create opportunities"
             )
-        
         
         new_opportunity = Opportunity(
             title=opportunity_data.title,
@@ -145,15 +132,14 @@ def create_opportunity(
         db.refresh(new_opportunity)
         
         return new_opportunity
+        
     except Exception as e:
-      
         print(f"Error in create_opportunity: {str(e)}")
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"An error occurred: {str(e)}"
         )
-
 
 @router.put("/{id}", response_model=OpportunityResponse)
 def update_opportunity(
@@ -169,12 +155,14 @@ def update_opportunity(
             detail="Opportunity not found"
         )
     
-   
+    # Authorization check (unless admin)
     if current_user.role != UserRole.ADMIN:
-        
-        pass
+        if opportunity.organization_id != current_user.organization_id:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to update this opportunity"
+            )
     
-   
     for key, value in opportunity_data.dict(exclude_unset=True).items():
         setattr(opportunity, key, value)
     
@@ -196,10 +184,9 @@ def delete_opportunity(
             detail="Opportunity not found"
         )
     
-   
+    # Authorization check (unless admin)
     if current_user.role != UserRole.ADMIN:
-     
-        if opportunity.organization_id != current_user.id:  
+        if opportunity.organization_id != current_user.organization_id:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Not authorized to delete this opportunity"
