@@ -1345,3 +1345,296 @@ NameError: name 'logger' is not defined
 2025-05-24 15:01:25,592 - app.routes.match_routes - INFO - Match 15: opportunity_id=5, opportunity.organization_id=10
 2025-05-24 15:01:25,593 - app.routes.match_routes - INFO - Organization check: user.org_id=10, opportunity.org_id=10
 2025-05-24 15:01:26,698 - app.routes.match_routes - INFO - Match 15 updated to status accepted by user 23
+2025-05-27 22:41:04,511 - run - INFO - Versity API starting up...
+2025-05-27 22:41:04,513 - run - INFO - Registered routes:
+2025-05-27 22:41:04,513 - run - INFO -   ['HEAD', 'GET'] /openapi.json
+2025-05-27 22:41:04,514 - run - INFO -   ['HEAD', 'GET'] /docs
+2025-05-27 22:41:04,514 - run - INFO -   ['HEAD', 'GET'] /docs/oauth2-redirect
+2025-05-27 22:41:04,514 - run - INFO -   ['HEAD', 'GET'] /redoc
+2025-05-27 22:41:04,514 - run - INFO -   ['POST'] /api/auth/register
+2025-05-27 22:41:04,514 - run - INFO -   ['POST'] /api/auth/login
+2025-05-27 22:41:04,514 - run - INFO -   ['POST'] /api/auth/logout
+2025-05-27 22:41:04,514 - run - INFO -   ['POST'] /api/auth/refresh-token
+2025-05-27 22:41:04,515 - run - INFO -   ['GET'] /api/auth/me
+2025-05-27 22:41:04,515 - run - INFO -   ['POST'] /api/auth/forgot-password
+2025-05-27 22:41:04,515 - run - INFO -   ['POST'] /api/auth/reset-password
+2025-05-27 22:41:04,515 - run - INFO -   ['PUT'] /api/auth/me
+2025-05-27 22:41:04,515 - run - INFO -   ['PUT'] /api/auth/users/{user_id}
+2025-05-27 22:41:04,516 - run - INFO -   ['GET'] /api/opportunities/
+2025-05-27 22:41:04,516 - run - INFO -   ['GET'] /api/opportunities
+2025-05-27 22:41:04,516 - run - INFO -   ['GET'] /api/opportunities/{id}
+2025-05-27 22:41:04,516 - run - INFO -   ['POST'] /api/opportunities/
+2025-05-27 22:41:04,516 - run - INFO -   ['PUT'] /api/opportunities/{id}
+2025-05-27 22:41:04,516 - run - INFO -   ['DELETE'] /api/opportunities/{id}
+2025-05-27 22:41:04,517 - run - INFO -   ['GET'] /api/matches/test
+2025-05-27 22:41:04,517 - run - INFO -   ['GET'] /api/matches/
+2025-05-27 22:41:04,517 - run - INFO -   ['POST'] /api/matches/
+2025-05-27 22:41:04,517 - run - INFO -   ['PUT'] /api/matches/{match_id}
+2025-05-27 22:41:04,517 - run - INFO -   ['GET'] /api/matches/{match_id}
+2025-05-27 22:41:04,517 - run - INFO -   ['POST'] /api/volunteer-hours/api/hours/
+2025-05-27 22:41:04,517 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/
+2025-05-27 22:41:04,518 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}/verify
+2025-05-27 22:41:04,518 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:41:04,518 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:41:04,518 - run - INFO -   ['DELETE'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:41:04,518 - run - INFO -   ['GET'] /api/organizations/test
+2025-05-27 22:41:04,518 - run - INFO -   ['GET'] /api/organizations/{id}
+2025-05-27 22:41:04,518 - run - INFO -   ['PUT'] /api/organizations/{id}
+2025-05-27 22:41:04,519 - run - INFO -   ['POST'] /api/organizations/
+2025-05-27 22:41:04,519 - run - INFO -   ['POST'] /api/organizations
+2025-05-27 22:41:04,519 - run - INFO -   ['GET'] /api/organizations/
+2025-05-27 22:41:04,519 - run - INFO -   ['DELETE'] /api/organizations/{id}
+2025-05-27 22:41:04,519 - run - INFO -   ['GET'] /api/admin/test
+2025-05-27 22:41:04,519 - run - INFO -   ['GET'] /api/admin/users
+2025-05-27 22:41:04,519 - run - INFO -   ['GET'] /api/admin/users/volunteers
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/users/organizations
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/users/{user_id}
+2025-05-27 22:41:04,520 - run - INFO -   ['DELETE'] /api/admin/users/{user_id}
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/logs
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/dashboard/stats
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/opportunities
+2025-05-27 22:41:04,520 - run - INFO -   ['DELETE'] /api/admin/opportunities/{opportunity_id}
+2025-05-27 22:41:04,520 - run - INFO -   ['GET'] /api/admin/matches
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/hours
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/admins
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/analytics
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/dashboard
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/organizations
+2025-05-27 22:41:04,521 - run - INFO -   ['GET'] /api/admin/organizations/{org_id}
+2025-05-27 22:41:04,521 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}
+2025-05-27 22:41:04,522 - run - INFO -   ['DELETE'] /api/admin/organizations/{org_id}
+2025-05-27 22:41:04,522 - run - INFO -   ['POST'] /api/admin/organizations/{org_id}/verify
+2025-05-27 22:41:04,522 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}/status
+2025-05-27 22:41:04,522 - run - INFO -   ['GET'] /api/health/api/health/
+2025-05-27 22:41:04,522 - run - INFO -   ['GET'] /api/health/api/health/db
+2025-05-27 22:41:04,522 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:41:04,522 - run - INFO -   ['PUT'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/hours
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{volunteer_id}/stats
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/matches
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /api
+2025-05-27 22:41:04,523 - run - INFO -   ['GET'] /test
+2025-05-27 22:42:03,953 - app.utils.error_handlers - ERROR - Database error: Mapper 'Mapper[User(users)]' has no property 'volunteer_profile'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-05-27 22:42:11,538 - app.utils.error_handlers - ERROR - Database error: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Volunteer(volunteers)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'volunteer_profile'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-05-27 22:44:03,364 - run - INFO - Versity API starting up...
+2025-05-27 22:44:03,365 - run - INFO - Registered routes:
+2025-05-27 22:44:03,365 - run - INFO -   ['HEAD', 'GET'] /openapi.json
+2025-05-27 22:44:03,365 - run - INFO -   ['HEAD', 'GET'] /docs
+2025-05-27 22:44:03,365 - run - INFO -   ['HEAD', 'GET'] /docs/oauth2-redirect
+2025-05-27 22:44:03,365 - run - INFO -   ['HEAD', 'GET'] /redoc
+2025-05-27 22:44:03,365 - run - INFO -   ['POST'] /api/auth/register
+2025-05-27 22:44:03,365 - run - INFO -   ['POST'] /api/auth/login
+2025-05-27 22:44:03,366 - run - INFO -   ['POST'] /api/auth/logout
+2025-05-27 22:44:03,366 - run - INFO -   ['POST'] /api/auth/refresh-token
+2025-05-27 22:44:03,366 - run - INFO -   ['GET'] /api/auth/me
+2025-05-27 22:44:03,366 - run - INFO -   ['POST'] /api/auth/forgot-password
+2025-05-27 22:44:03,366 - run - INFO -   ['POST'] /api/auth/reset-password
+2025-05-27 22:44:03,366 - run - INFO -   ['PUT'] /api/auth/me
+2025-05-27 22:44:03,366 - run - INFO -   ['PUT'] /api/auth/users/{user_id}
+2025-05-27 22:44:03,367 - run - INFO -   ['GET'] /api/opportunities/
+2025-05-27 22:44:03,367 - run - INFO -   ['GET'] /api/opportunities
+2025-05-27 22:44:03,367 - run - INFO -   ['GET'] /api/opportunities/{id}
+2025-05-27 22:44:03,367 - run - INFO -   ['POST'] /api/opportunities/
+2025-05-27 22:44:03,367 - run - INFO -   ['PUT'] /api/opportunities/{id}
+2025-05-27 22:44:03,367 - run - INFO -   ['DELETE'] /api/opportunities/{id}
+2025-05-27 22:44:03,367 - run - INFO -   ['GET'] /api/matches/test
+2025-05-27 22:44:03,368 - run - INFO -   ['GET'] /api/matches/
+2025-05-27 22:44:03,368 - run - INFO -   ['POST'] /api/matches/
+2025-05-27 22:44:03,368 - run - INFO -   ['PUT'] /api/matches/{match_id}
+2025-05-27 22:44:03,368 - run - INFO -   ['GET'] /api/matches/{match_id}
+2025-05-27 22:44:03,368 - run - INFO -   ['POST'] /api/volunteer-hours/api/hours/
+2025-05-27 22:44:03,368 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/
+2025-05-27 22:44:03,368 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}/verify
+2025-05-27 22:44:03,368 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:03,369 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:03,369 - run - INFO -   ['DELETE'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:03,369 - run - INFO -   ['GET'] /api/organizations/test
+2025-05-27 22:44:03,369 - run - INFO -   ['GET'] /api/organizations/{id}
+2025-05-27 22:44:03,369 - run - INFO -   ['PUT'] /api/organizations/{id}
+2025-05-27 22:44:03,369 - run - INFO -   ['POST'] /api/organizations/
+2025-05-27 22:44:03,369 - run - INFO -   ['POST'] /api/organizations
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/organizations/
+2025-05-27 22:44:03,370 - run - INFO -   ['DELETE'] /api/organizations/{id}
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/test
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/users
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/users/volunteers
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/users/organizations
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/users/{user_id}
+2025-05-27 22:44:03,370 - run - INFO -   ['DELETE'] /api/admin/users/{user_id}
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/logs
+2025-05-27 22:44:03,370 - run - INFO -   ['GET'] /api/admin/dashboard/stats
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/opportunities
+2025-05-27 22:44:03,371 - run - INFO -   ['DELETE'] /api/admin/opportunities/{opportunity_id}
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/matches
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/hours
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/admins
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/analytics
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/dashboard
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/organizations
+2025-05-27 22:44:03,371 - run - INFO -   ['GET'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:03,372 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:03,372 - run - INFO -   ['DELETE'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:03,372 - run - INFO -   ['POST'] /api/admin/organizations/{org_id}/verify
+2025-05-27 22:44:03,372 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}/status
+2025-05-27 22:44:03,372 - run - INFO -   ['GET'] /api/health/api/health/
+2025-05-27 22:44:03,372 - run - INFO -   ['GET'] /api/health/api/health/db
+2025-05-27 22:44:03,372 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:44:03,372 - run - INFO -   ['PUT'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/hours
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{volunteer_id}/stats
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/matches
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /api
+2025-05-27 22:44:03,373 - run - INFO -   ['GET'] /test
+2025-05-27 22:44:11,858 - run - INFO - Versity API starting up...
+2025-05-27 22:44:11,859 - run - INFO - Registered routes:
+2025-05-27 22:44:11,859 - run - INFO -   ['HEAD', 'GET'] /openapi.json
+2025-05-27 22:44:11,859 - run - INFO -   ['HEAD', 'GET'] /docs
+2025-05-27 22:44:11,859 - run - INFO -   ['HEAD', 'GET'] /docs/oauth2-redirect
+2025-05-27 22:44:11,859 - run - INFO -   ['HEAD', 'GET'] /redoc
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/register
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/login
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/logout
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/refresh-token
+2025-05-27 22:44:11,860 - run - INFO -   ['GET'] /api/auth/me
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/forgot-password
+2025-05-27 22:44:11,860 - run - INFO -   ['POST'] /api/auth/reset-password
+2025-05-27 22:44:11,860 - run - INFO -   ['PUT'] /api/auth/me
+2025-05-27 22:44:11,861 - run - INFO -   ['PUT'] /api/auth/users/{user_id}
+2025-05-27 22:44:11,861 - run - INFO -   ['GET'] /api/opportunities/
+2025-05-27 22:44:11,861 - run - INFO -   ['GET'] /api/opportunities
+2025-05-27 22:44:11,861 - run - INFO -   ['GET'] /api/opportunities/{id}
+2025-05-27 22:44:11,861 - run - INFO -   ['POST'] /api/opportunities/
+2025-05-27 22:44:11,861 - run - INFO -   ['PUT'] /api/opportunities/{id}
+2025-05-27 22:44:11,861 - run - INFO -   ['DELETE'] /api/opportunities/{id}
+2025-05-27 22:44:11,862 - run - INFO -   ['GET'] /api/matches/test
+2025-05-27 22:44:11,862 - run - INFO -   ['GET'] /api/matches/
+2025-05-27 22:44:11,862 - run - INFO -   ['POST'] /api/matches/
+2025-05-27 22:44:11,862 - run - INFO -   ['PUT'] /api/matches/{match_id}
+2025-05-27 22:44:11,862 - run - INFO -   ['GET'] /api/matches/{match_id}
+2025-05-27 22:44:11,862 - run - INFO -   ['POST'] /api/volunteer-hours/api/hours/
+2025-05-27 22:44:11,862 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/
+2025-05-27 22:44:11,862 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}/verify
+2025-05-27 22:44:11,863 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:11,863 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:11,863 - run - INFO -   ['DELETE'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:44:11,863 - run - INFO -   ['GET'] /api/organizations/test
+2025-05-27 22:44:11,863 - run - INFO -   ['GET'] /api/organizations/{id}
+2025-05-27 22:44:11,863 - run - INFO -   ['PUT'] /api/organizations/{id}
+2025-05-27 22:44:11,863 - run - INFO -   ['POST'] /api/organizations/
+2025-05-27 22:44:11,863 - run - INFO -   ['POST'] /api/organizations
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/organizations/
+2025-05-27 22:44:11,864 - run - INFO -   ['DELETE'] /api/organizations/{id}
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/admin/test
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/admin/users
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/admin/users/volunteers
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/admin/users/organizations
+2025-05-27 22:44:11,864 - run - INFO -   ['GET'] /api/admin/users/{user_id}
+2025-05-27 22:44:11,864 - run - INFO -   ['DELETE'] /api/admin/users/{user_id}
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/logs
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/dashboard/stats
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/opportunities
+2025-05-27 22:44:11,865 - run - INFO -   ['DELETE'] /api/admin/opportunities/{opportunity_id}
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/matches
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/hours
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/admins
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/analytics
+2025-05-27 22:44:11,865 - run - INFO -   ['GET'] /api/admin/dashboard
+2025-05-27 22:44:11,866 - run - INFO -   ['GET'] /api/admin/organizations
+2025-05-27 22:44:11,866 - run - INFO -   ['GET'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:11,866 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:11,866 - run - INFO -   ['DELETE'] /api/admin/organizations/{org_id}
+2025-05-27 22:44:11,866 - run - INFO -   ['POST'] /api/admin/organizations/{org_id}/verify
+2025-05-27 22:44:11,866 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}/status
+2025-05-27 22:44:11,866 - run - INFO -   ['GET'] /api/health/api/health/
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/health/api/health/db
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:44:11,867 - run - INFO -   ['PUT'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/hours
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{volunteer_id}/stats
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/matches
+2025-05-27 22:44:11,867 - run - INFO -   ['GET'] /
+2025-05-27 22:44:11,868 - run - INFO -   ['GET'] /api
+2025-05-27 22:44:11,868 - run - INFO -   ['GET'] /test
+2025-05-27 22:45:17,749 - run - INFO - Versity API starting up...
+2025-05-27 22:45:17,749 - run - INFO - Registered routes:
+2025-05-27 22:45:17,749 - run - INFO -   ['HEAD', 'GET'] /openapi.json
+2025-05-27 22:45:17,749 - run - INFO -   ['HEAD', 'GET'] /docs
+2025-05-27 22:45:17,749 - run - INFO -   ['HEAD', 'GET'] /docs/oauth2-redirect
+2025-05-27 22:45:17,750 - run - INFO -   ['HEAD', 'GET'] /redoc
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/register
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/login
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/logout
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/refresh-token
+2025-05-27 22:45:17,750 - run - INFO -   ['GET'] /api/auth/me
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/forgot-password
+2025-05-27 22:45:17,750 - run - INFO -   ['POST'] /api/auth/reset-password
+2025-05-27 22:45:17,751 - run - INFO -   ['PUT'] /api/auth/me
+2025-05-27 22:45:17,751 - run - INFO -   ['PUT'] /api/auth/users/{user_id}
+2025-05-27 22:45:17,751 - run - INFO -   ['GET'] /api/opportunities/
+2025-05-27 22:45:17,751 - run - INFO -   ['GET'] /api/opportunities
+2025-05-27 22:45:17,751 - run - INFO -   ['GET'] /api/opportunities/{id}
+2025-05-27 22:45:17,751 - run - INFO -   ['POST'] /api/opportunities/
+2025-05-27 22:45:17,752 - run - INFO -   ['PUT'] /api/opportunities/{id}
+2025-05-27 22:45:17,752 - run - INFO -   ['DELETE'] /api/opportunities/{id}
+2025-05-27 22:45:17,752 - run - INFO -   ['GET'] /api/matches/test
+2025-05-27 22:45:17,752 - run - INFO -   ['GET'] /api/matches/
+2025-05-27 22:45:17,752 - run - INFO -   ['POST'] /api/matches/
+2025-05-27 22:45:17,752 - run - INFO -   ['PUT'] /api/matches/{match_id}
+2025-05-27 22:45:17,752 - run - INFO -   ['GET'] /api/matches/{match_id}
+2025-05-27 22:45:17,752 - run - INFO -   ['POST'] /api/volunteer-hours/api/hours/
+2025-05-27 22:45:17,753 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/
+2025-05-27 22:45:17,753 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}/verify
+2025-05-27 22:45:17,753 - run - INFO -   ['GET'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:45:17,753 - run - INFO -   ['PUT'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:45:17,753 - run - INFO -   ['DELETE'] /api/volunteer-hours/api/hours/{id}
+2025-05-27 22:45:17,753 - run - INFO -   ['GET'] /api/organizations/test
+2025-05-27 22:45:17,753 - run - INFO -   ['GET'] /api/organizations/{id}
+2025-05-27 22:45:17,753 - run - INFO -   ['PUT'] /api/organizations/{id}
+2025-05-27 22:45:17,754 - run - INFO -   ['POST'] /api/organizations/
+2025-05-27 22:45:17,754 - run - INFO -   ['POST'] /api/organizations
+2025-05-27 22:45:17,754 - run - INFO -   ['GET'] /api/organizations/
+2025-05-27 22:45:17,754 - run - INFO -   ['DELETE'] /api/organizations/{id}
+2025-05-27 22:45:17,754 - run - INFO -   ['GET'] /api/admin/test
+2025-05-27 22:45:17,754 - run - INFO -   ['GET'] /api/admin/users
+2025-05-27 22:45:17,755 - run - INFO -   ['GET'] /api/admin/users/volunteers
+2025-05-27 22:45:17,755 - run - INFO -   ['GET'] /api/admin/users/organizations
+2025-05-27 22:45:17,755 - run - INFO -   ['GET'] /api/admin/users/{user_id}
+2025-05-27 22:45:17,755 - run - INFO -   ['DELETE'] /api/admin/users/{user_id}
+2025-05-27 22:45:17,755 - run - INFO -   ['GET'] /api/admin/logs
+2025-05-27 22:45:17,755 - run - INFO -   ['GET'] /api/admin/dashboard/stats
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/opportunities
+2025-05-27 22:45:17,756 - run - INFO -   ['DELETE'] /api/admin/opportunities/{opportunity_id}
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/matches
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/hours
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/admins
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/analytics
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/dashboard
+2025-05-27 22:45:17,756 - run - INFO -   ['GET'] /api/admin/organizations
+2025-05-27 22:45:17,757 - run - INFO -   ['GET'] /api/admin/organizations/{org_id}
+2025-05-27 22:45:17,757 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}
+2025-05-27 22:45:17,757 - run - INFO -   ['DELETE'] /api/admin/organizations/{org_id}
+2025-05-27 22:45:17,757 - run - INFO -   ['POST'] /api/admin/organizations/{org_id}/verify
+2025-05-27 22:45:17,757 - run - INFO -   ['PUT'] /api/admin/organizations/{org_id}/status
+2025-05-27 22:45:17,757 - run - INFO -   ['GET'] /api/health/api/health/
+2025-05-27 22:45:17,757 - run - INFO -   ['GET'] /api/health/api/health/db
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:45:17,758 - run - INFO -   ['PUT'] /api/volunteers/api/volunteers/{id}
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/hours
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{volunteer_id}/stats
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /api/volunteers/api/volunteers/{id}/matches
+2025-05-27 22:45:17,758 - run - INFO -   ['GET'] /
+2025-05-27 22:45:17,759 - run - INFO -   ['GET'] /api
+2025-05-27 22:45:17,759 - run - INFO -   ['GET'] /test
+2025-05-27 22:45:24,610 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/dennis/.local/share/virtualenvs/versitybck-9YFWhpIm/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-05-27 22:45:30,132 - app.utils.email - INFO - Email sent successfully to test@example.com
