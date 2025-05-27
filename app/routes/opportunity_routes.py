@@ -11,59 +11,55 @@ from typing import List, Optional, Dict, Any
 # Create router without prefix - prefix is added in run.py
 router = APIRouter()
 
-@router.get("/", response_model=Dict[str, Any])
+@router.get("/", response_model=List[OpportunityResponse])
 def list_opportunities(
-    skip: int = 0, 
-    limit: int = 10,
-    title: Optional[str] = None,
-    location: Optional[str] = None,
-    organization_id: Optional[int] = None, 
-    db: Session = Depends(get_db)
+    skip: int = Query(0, ge=0),
+    limit: int = Query(10, ge=1, le=100),
+    title: Optional[str] = Query(None),
+    location: Optional[str] = Query(None),
+    category: Optional[str] = Query(None),
+    search: Optional[str] = Query(None),
+    remote: Optional[bool] = Query(None),
+    db: Session = Depends(get_db)  # ✅ This should be Session = Depends(get_db)
 ):
-    query = db.query(Opportunity)
-   
-    if title:
-        query = query.filter(Opportunity.title.ilike(f"%{title}%"))
-    if location:
-        query = query.filter(Opportunity.location.ilike(f"%{location}%"))
+    """
+    Get all opportunities with optional filtering
+    """
+    try:
+        # ✅ Now db is a proper Session object
+        query = db.query(Opportunity)
+        
+        # Apply filters
+        if title:
+            query = query.filter(Opportunity.title.ilike(f"%{title}%"))
+        
+        if location:
+            query = query.filter(Opportunity.location.ilike(f"%{location}%"))
+            
+        if category:
+            query = query.filter(Opportunity.category.ilike(f"%{category}%"))
+            
+        if search:
+            query = query.filter(
+                Opportunity.title.ilike(f"%{search}%") |
+                Opportunity.description.ilike(f"%{search}%")
+            )
+            
+        if remote is not None:
+            query = query.filter(Opportunity.is_remote == remote)
+        
+        # Get total count for pagination
+        total = query.count()
+        
+        # Apply pagination
+        opportunities = query.offset(skip).limit(limit).all()
+        
+        return opportunities
+        
+    except Exception as e:
+        print(f"Error in list_opportunities: {e}")
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
-    if organization_id:  
-        query = query.filter(Opportunity.organization_id == organization_id)
-    
-    # Get total count for pagination
-    total_count = query.count()
-    
-    # Get paginated results
-    opportunities = query.offset(skip).limit(limit).all()
-    
-    # Convert SQLAlchemy models to dictionaries
-    opportunity_dicts = []
-    for opp in opportunities:
-        # Create a dictionary with the opportunity attributes
-        opp_dict = {
-            "id": opp.id,
-            "title": opp.title,
-            "description": opp.description,
-            "skills_required": opp.skills_required,
-            "start_date": opp.start_date,
-            "end_date": opp.end_date,
-            "location": opp.location,
-            "organization_id": opp.organization_id,
-            # Add any other fields you need
-        }
-        opportunity_dicts.append(opp_dict)
-    
-    # Calculate page number and total pages
-    page = (skip // limit) + 1 if limit > 0 else 1
-    total_pages = (total_count + limit - 1) // limit if limit > 0 else 1  # Ceiling division
-    
-    # Return structured response with pagination info
-    return {
-        "items": opportunity_dicts,  # Use the list of dictionaries instead of SQLAlchemy models
-        "page": page,
-        "totalPages": total_pages,
-        "totalItems": total_count
-    }
 
 @router.get("", response_model=Dict[str, Any])  # Add this route to handle requests without trailing slash
 def list_opportunities_no_slash(
